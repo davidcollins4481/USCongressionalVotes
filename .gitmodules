@@ -1,0 +1,3 @@
+[submodule "nytimes-congress-api"]
+	path = nytimes-congress-api
+	url = git@github.com:davidcollins4481/nytimes-congress-api.git
