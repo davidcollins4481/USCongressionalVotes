@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIView *senateView;
 @property (weak, nonatomic) IBOutlet UIView *houseView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UITableView *senateTableView;
+@property (weak, nonatomic) IBOutlet UITableView *houseTableView;
 
 - (IBAction)segmentValueChanged:(id)sender;
 

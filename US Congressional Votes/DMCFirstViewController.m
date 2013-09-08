@@ -14,12 +14,13 @@
 
 @implementation DMCFirstViewController
 
-@synthesize senateView, houseView;
+@synthesize senateView, houseView, senateTableView, houseTableView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //[senateTableView ]
 }
 
 - (void)didReceiveMemoryWarning

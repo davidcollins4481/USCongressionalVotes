@@ -56,9 +56,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Members" id="u1e-5L-l1D"/>
                     <connections>
+                        <outlet property="houseTableView" destination="T0f-RW-mHI" id="VvR-JX-qQv"/>
                         <outlet property="houseView" destination="mOy-vD-5lM" id="4E6-FN-6vR"/>
                         <outlet property="searchDisplayController" destination="sFZ-6b-We1" id="0H4-yD-1s9"/>
                         <outlet property="segmentedControl" destination="Zkb-6R-xf8" id="sV6-UQ-lTS"/>
+                        <outlet property="senateTableView" destination="KZ8-ni-6nO" id="nb6-dk-Kdw"/>
                         <outlet property="senateView" destination="pLR-32-Sbm" id="eA5-b9-6yi"/>
                     </connections>
                 </viewController>
