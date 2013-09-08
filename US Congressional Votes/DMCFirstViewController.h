@@ -10,4 +10,10 @@
 
 @interface DMCFirstViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *senateView;
+@property (weak, nonatomic) IBOutlet UIView *houseView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+- (IBAction)segmentValueChanged:(id)sender;
+
 @end

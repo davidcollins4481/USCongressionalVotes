@@ -14,6 +14,8 @@
 
 @implementation DMCFirstViewController
 
+@synthesize senateView, houseView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,6 +26,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)segmentValueChanged:(id)sender {
+    switch ([sender selectedSegmentIndex]) {
+        // show senate view
+        case 0:
+            self.senateView.hidden = NO;
+            self.houseView.hidden = YES;
+            break;
+        // show house view
+        case 1:
+            self.senateView.hidden = YES;
+            self.houseView.hidden = NO;
+            break;
+        default:
+            break;
+    }
 }
 
 @end
