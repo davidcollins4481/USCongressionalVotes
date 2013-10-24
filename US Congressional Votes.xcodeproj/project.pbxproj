@@ -22,6 +22,7 @@
 		C98DF66F17D97B6C0034A3AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98DF64E17D97B6C0034A3AA /* UIKit.framework */; };
 		C98DF67717D97B6C0034A3AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C98DF67517D97B6C0034A3AA /* InfoPlist.strings */; };
 		C98DF67917D97B6C0034A3AA /* US_Congressional_VotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DF67817D97B6C0034A3AA /* US_Congressional_VotesTests.m */; };
+		C9FE9E5D17DCDE2600EDDB30 /* RepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FE9E5C17DCDE2600EDDB30 /* RepCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		C98DF67417D97B6C0034A3AA /* US Congressional VotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "US Congressional VotesTests-Info.plist"; sourceTree = "<group>"; };
 		C98DF67617D97B6C0034A3AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C98DF67817D97B6C0034A3AA /* US_Congressional_VotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = US_Congressional_VotesTests.m; sourceTree = "<group>"; };
+		C9FE9E5C17DCDE2600EDDB30 /* RepCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				C98DF65917D97B6C0034A3AA /* DMCAppDelegate.h */,
 				C98DF65A17D97B6C0034A3AA /* DMCAppDelegate.m */,
 				C98DF65C17D97B6C0034A3AA /* Main.storyboard */,
+				C9FE9E5C17DCDE2600EDDB30 /* RepCell.xib */,
 				C98DF65F17D97B6C0034A3AA /* DMCFirstViewController.h */,
 				C98DF66017D97B6C0034A3AA /* DMCFirstViewController.m */,
 				C98DF66217D97B6C0034A3AA /* DMCSecondViewController.h */,
@@ -237,6 +240,7 @@
 				C98DF66617D97B6C0034A3AA /* Images.xcassets in Resources */,
 				C98DF65517D97B6C0034A3AA /* InfoPlist.strings in Resources */,
 				C98DF65E17D97B6C0034A3AA /* Main.storyboard in Resources */,
+				C9FE9E5D17DCDE2600EDDB30 /* RepCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +467,7 @@
 				C98DF67E17D97B6C0034A3AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C98DF67F17D97B6C0034A3AA /* Build configuration list for PBXNativeTarget "US Congressional VotesTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +476,7 @@
 				C98DF68117D97B6C0034A3AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
