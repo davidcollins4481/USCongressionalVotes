@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DMCFirstViewController : UIViewController
+@interface DMCFirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *senateView;
 @property (weak, nonatomic) IBOutlet UIView *houseView;
