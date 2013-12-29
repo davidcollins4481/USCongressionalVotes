@@ -48,7 +48,7 @@ NSArray *tableData, *tableDataTwo;
 
     if (tableView == self.senateTableView) {
         cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-    } else {
+    } else if (tableView == self.houseTableView) {
         cell.textLabel.text = [tableDataTwo objectAtIndex:indexPath.row];
     }
     
