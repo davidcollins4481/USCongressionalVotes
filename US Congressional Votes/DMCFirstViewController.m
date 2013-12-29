@@ -17,22 +17,17 @@
 
 @synthesize senateView, houseView, senateTableView, houseTableView;
 
-NSArray *tableData;
+NSArray *tableData, *tableDataTwo;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-   // [senateTableView registerNib:[UINib nibWithNibName:@"RepCell" bundle:nil]
-    //      forCellReuseIdentifier:@"cell"];
     
+    // senate
     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
     
-    //[senateTableView cellForRowAtIndexPath:0];
-    [senateTableView setDelegate:self];
-    [senateTableView setDataSource:self];
-    [self.view addSubview: senateTableView];
-
+    // house
+    tableDataTwo = [NSArray arrayWithObjects:@"asdfsd", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,15 +45,20 @@ NSArray *tableData;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
 
     if (tableView == self.senateTableView) {
-        
+        cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
     } else {
-        // house view selected
+        cell.textLabel.text = [tableDataTwo objectAtIndex:indexPath.row];
     }
+    
     return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
