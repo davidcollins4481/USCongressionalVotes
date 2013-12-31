@@ -73,10 +73,10 @@ NYTSenate *senate;
 
     if (tableView == self.senateTableView) {
         NYTMember *senator = [senators objectAtIndex: indexPath.row];
-        cell.textLabel.text = [NSString stringWithFormat: @"%@, %@", [senator lastName],[senator firstName] ];
+        cell.textLabel.text = [senator lineItemString];
     } else if (tableView == self.houseTableView) {
         NYTMember *rep = [houseMembers objectAtIndex:indexPath.row];
-        cell.textLabel.text = [NSString stringWithFormat: @"%@, %@", [rep lastName],[rep firstName] ];
+        cell.textLabel.text = [rep lineItemString];
     }
     
     return cell;
