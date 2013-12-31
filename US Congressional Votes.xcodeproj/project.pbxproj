@@ -22,6 +22,7 @@
 		C98DF66F17D97B6C0034A3AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98DF64E17D97B6C0034A3AA /* UIKit.framework */; };
 		C98DF67717D97B6C0034A3AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C98DF67517D97B6C0034A3AA /* InfoPlist.strings */; };
 		C98DF67917D97B6C0034A3AA /* US_Congressional_VotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C98DF67817D97B6C0034A3AA /* US_Congressional_VotesTests.m */; };
+		C9F58A541873623D005E5207 /* libnytimes-congress-api.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F58A4F1873621B005E5207 /* libnytimes-congress-api.a */; };
 		C9FE9E5D17DCDE2600EDDB30 /* RepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FE9E5C17DCDE2600EDDB30 /* RepCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = C98DF64617D97B6C0034A3AA;
 			remoteInfo = "US Congressional Votes";
+		};
+		C9F58A4E1873621B005E5207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F58A491873621B005E5207 /* nytimes-congress-api.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C9DA94BD17D294C800A0E71C;
+			remoteInfo = "nytimes-congress-api";
+		};
+		C9F58A501873621B005E5207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F58A491873621B005E5207 /* nytimes-congress-api.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C9DA94CD17D294C800A0E71C;
+			remoteInfo = "nytimes-congress-apiTests";
+		};
+		C9F58A5218736238005E5207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F58A491873621B005E5207 /* nytimes-congress-api.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C9DA94BC17D294C800A0E71C;
+			remoteInfo = "nytimes-congress-api";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,6 +79,7 @@
 		C98DF67417D97B6C0034A3AA /* US Congressional VotesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "US Congressional VotesTests-Info.plist"; sourceTree = "<group>"; };
 		C98DF67617D97B6C0034A3AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C98DF67817D97B6C0034A3AA /* US_Congressional_VotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = US_Congressional_VotesTests.m; sourceTree = "<group>"; };
+		C9F58A491873621B005E5207 /* nytimes-congress-api.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "nytimes-congress-api.xcodeproj"; path = "nytimes-congress-api/nytimes-congress-api.xcodeproj"; sourceTree = "<group>"; };
 		C9FE9E5C17DCDE2600EDDB30 /* RepCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F58A541873623D005E5207 /* libnytimes-congress-api.a in Frameworks */,
 				C98DF64D17D97B6C0034A3AA /* CoreGraphics.framework in Frameworks */,
 				C98DF64F17D97B6C0034A3AA /* UIKit.framework in Frameworks */,
 				C98DF64B17D97B6C0034A3AA /* Foundation.framework in Frameworks */,
@@ -87,6 +111,7 @@
 		C98DF63E17D97B6C0034A3AA = {
 			isa = PBXGroup;
 			children = (
+				C9F58A491873621B005E5207 /* nytimes-congress-api.xcodeproj */,
 				C98DF65017D97B6C0034A3AA /* US Congressional Votes */,
 				C98DF67217D97B6C0034A3AA /* US Congressional VotesTests */,
 				C98DF64917D97B6C0034A3AA /* Frameworks */,
@@ -160,6 +185,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C9F58A4A1873621B005E5207 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9F58A4F1873621B005E5207 /* libnytimes-congress-api.a */,
+				C9F58A511873621B005E5207 /* nytimes-congress-apiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,6 +208,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C9F58A5318736238005E5207 /* PBXTargetDependency */,
 			);
 			name = "US Congressional Votes";
 			productName = "US Congressional Votes";
@@ -224,6 +259,12 @@
 			mainGroup = C98DF63E17D97B6C0034A3AA;
 			productRefGroup = C98DF64817D97B6C0034A3AA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C9F58A4A1873621B005E5207 /* Products */;
+					ProjectRef = C9F58A491873621B005E5207 /* nytimes-congress-api.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C98DF64617D97B6C0034A3AA /* US Congressional Votes */,
@@ -231,6 +272,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C9F58A4F1873621B005E5207 /* libnytimes-congress-api.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libnytimes-congress-api.a";
+			remoteRef = C9F58A4E1873621B005E5207 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F58A511873621B005E5207 /* nytimes-congress-apiTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "nytimes-congress-apiTests.xctest";
+			remoteRef = C9F58A501873621B005E5207 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C98DF64517D97B6C0034A3AA /* Resources */ = {
@@ -281,6 +339,11 @@
 			isa = PBXTargetDependency;
 			target = C98DF64617D97B6C0034A3AA /* US Congressional Votes */;
 			targetProxy = C98DF67017D97B6C0034A3AA /* PBXContainerItemProxy */;
+		};
+		C9F58A5318736238005E5207 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "nytimes-congress-api";
+			targetProxy = C9F58A5218736238005E5207 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -388,8 +451,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "US Congressional Votes/US Congressional Votes-Prefix.pch";
 				INFOPLIST_FILE = "US Congressional Votes/US Congressional Votes-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/nytimes-congress-api/nytimes-congress-api";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -402,8 +467,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "US Congressional Votes/US Congressional Votes-Prefix.pch";
 				INFOPLIST_FILE = "US Congressional Votes/US Congressional Votes-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/nytimes-congress-api/nytimes-congress-api";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
