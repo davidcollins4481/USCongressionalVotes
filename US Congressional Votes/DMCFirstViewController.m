@@ -8,6 +8,8 @@
 
 #import "DMCFirstViewController.h"
 #import <UIKit/UIKit.h>
+#import "NYTHouseOfRepresentatives.h"
+#import "NYTSenate.h"
 
 @interface DMCFirstViewController ()
 
@@ -17,17 +19,40 @@
 
 @synthesize senateView, houseView, senateTableView, houseTableView;
 
-NSArray *tableData, *tableDataTwo;
+// these are going away
+NSArray *houseMembers, *senators;
+
+NYTHouseOfRepresentatives *house;
+NYTSenate *senate;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // senate
-    tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+    dispatch_semaphore_t holdOn = dispatch_semaphore_create(0);
+
+    senate = [[NYTSenate alloc] initWithCallbacksOnSuccess:
+              ^(NSURLResponse* response, NSData* urlData) {
+                  dispatch_semaphore_signal(holdOn);
+              }
+              onError: ^(NSURLResponse* response, NSError *error) {
+                  dispatch_semaphore_signal(holdOn);
+              }];
     
-    // house
-    tableDataTwo = [NSArray arrayWithObjects:@"asdfsd", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+    dispatch_semaphore_wait(holdOn, DISPATCH_TIME_FOREVER);
+
+    house = [[NYTHouseOfRepresentatives alloc] initWithCallbacksOnSuccess:
+             ^(NSURLResponse* response, NSData* urlData) {
+                 dispatch_semaphore_signal(holdOn);
+             }
+             onError: ^(NSURLResponse* response, NSError *error) {
+                 dispatch_semaphore_signal(holdOn);
+             }];
+    
+    dispatch_semaphore_wait(holdOn, DISPATCH_TIME_FOREVER);
+
+    houseMembers = [house getMembers];
+    senators = [senate getMembers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,9 +72,11 @@ NSArray *tableData, *tableDataTwo;
     }
 
     if (tableView == self.senateTableView) {
-        cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+        NYTMember *senator = [senators objectAtIndex: indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat: @"%@, %@", [senator lastName],[senator firstName] ];
     } else if (tableView == self.houseTableView) {
-        cell.textLabel.text = [tableDataTwo objectAtIndex:indexPath.row];
+        NYTMember *rep = [houseMembers objectAtIndex:indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat: @"%@, %@", [rep lastName],[rep firstName] ];
     }
     
     return cell;
@@ -63,7 +90,7 @@ NSArray *tableData, *tableDataTwo;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableData count];
+    return [houseMembers count];
 }
 
 /* events */
