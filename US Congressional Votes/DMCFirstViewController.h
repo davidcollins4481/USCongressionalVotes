@@ -17,6 +17,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *senateTableView;
 @property (weak, nonatomic) IBOutlet UITableView *houseTableView;
 
+@property NSString *searchID;
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key;
+- (id)valueForUndefinedKey:(NSString *)key;
+
 - (IBAction)segmentValueChanged:(id)sender;
 
 @end

@@ -21,7 +21,7 @@
 
 @synthesize senateView, houseView, senateTableView, houseTableView;
 
-NSArray *houseMembers, *senators;
+NSArray *houseMembers, *senators, *searchedHouseMembers, *searchedSenators;
 
 NYTHouseOfRepresentatives *house;
 NYTSenate *senate;
@@ -64,6 +64,11 @@ NYTSenate *senate;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //UITableView *search = self.searchDisplayController;
+   // if (tableView == self.searchDisplayController) {
+        
+   // }
+    
     if (tableView == self.senateTableView) {
         static NSString *cellTableIdentifier = @"SenatorCell";
         SenatorCell *cell = (SenatorCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
@@ -91,6 +96,10 @@ NYTSenate *senate;
     return NULL;
 }
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    NSLog(@"HA! caught you trying to set undefined key %@ to %@",key,value);
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -101,6 +110,15 @@ NYTSenate *senate;
 {
     return [houseMembers count];
 }
+/*
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"SELF contains[cd] %@",
+                                    searchText];
+    
+    searchedSenators = [senators filteredArrayUsingPredicate:resultPredicate];
+}*/
 
 /* events */
 - (IBAction)segmentValueChanged:(id)sender {
@@ -119,9 +137,9 @@ NYTSenate *senate;
             break;
     }
 }
-
+/*
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [indexPath row] * 20;
-}
+}*/
 @end
