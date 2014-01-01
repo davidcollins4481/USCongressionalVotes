@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "NYTHouseOfRepresentatives.h"
 #import "NYTSenate.h"
+#import "SenatorCell.h"
+#import "RepCell.h"
 
 @interface DMCFirstViewController ()
 
@@ -19,7 +21,6 @@
 
 @synthesize senateView, houseView, senateTableView, houseTableView;
 
-// these are going away
 NSArray *houseMembers, *senators;
 
 NYTHouseOfRepresentatives *house;
@@ -63,23 +64,31 @@ NYTSenate *senate;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-
     if (tableView == self.senateTableView) {
-        NYTMember *senator = [senators objectAtIndex: indexPath.row];
-        cell.textLabel.text = [senator lineItemString];
+        static NSString *cellTableIdentifier = @"SenatorCell";
+        SenatorCell *cell = (SenatorCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
+        NYTSenator *senator = [senators objectAtIndex: indexPath.row];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellTableIdentifier owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        cell.state.text = [senator state];
+        cell.name.text = [senator nameString];
+        cell.party.text = [senator party];
+        return cell;
     } else if (tableView == self.houseTableView) {
-        NYTMember *rep = [houseMembers objectAtIndex:indexPath.row];
-        cell.textLabel.text = [rep lineItemString];
+        static NSString *cellTableIdentifier = @"RepCell";
+        RepCell *cell = (RepCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
+        NYTHouseRepresentative *rep = [houseMembers objectAtIndex:indexPath.row];
+        cell = (RepCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellTableIdentifier owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        cell.state.text = [rep state];
+        cell.name.text = [rep nameString];
+        cell.district.text = [rep districtString];
+        return cell;
     }
     
-    return cell;
+    // shouldn't happen
+    return NULL;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -111,4 +120,8 @@ NYTSenate *senate;
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [indexPath row] * 20;
+}
 @end
