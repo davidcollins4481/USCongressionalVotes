@@ -19,6 +19,7 @@
 
 @implementation DMCFirstViewController
 
+//@synthesize type;// = _type;
 @synthesize senateView, houseView, senateTableView, houseTableView;
 
 NSArray *houseMembers, *senators, *searchedHouseMembers, *searchedSenators;
@@ -95,10 +96,14 @@ NYTSenate *senate;
     // shouldn't happen
     return NULL;
 }
-
+/*
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     NSLog(@"HA! caught you trying to set undefined key %@ to %@",key,value);
 }
+
+- (id)valueForUndefinedKey:(NSString *)key {
+    return NULL;
+}*/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

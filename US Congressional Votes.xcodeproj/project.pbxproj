@@ -256,6 +256,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "David Collins";
 				TargetAttributes = {
+					C98DF64617D97B6C0034A3AA = {
+						DevelopmentTeam = 9FTEA6QLJQ;
+					};
 					C98DF66A17D97B6C0034A3AA = {
 						TestTargetID = C98DF64617D97B6C0034A3AA;
 					};
@@ -464,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "US Congressional Votes/US Congressional Votes-Prefix.pch";
 				INFOPLIST_FILE = "US Congressional Votes/US Congressional Votes-Info.plist";
@@ -480,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "US Congressional Votes/US Congressional Votes-Prefix.pch";
 				INFOPLIST_FILE = "US Congressional Votes/US Congressional Votes-Info.plist";
