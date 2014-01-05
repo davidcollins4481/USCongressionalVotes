@@ -58,9 +58,6 @@
                                         <rect key="frame" x="0.0" y="44" width="320" height="404"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="CZ4-MO-1fc" id="5Nj-sI-61w"/>
-                                        </connections>
                                     </tableView>
                                     <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Os7-E8-A7z">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -10,8 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "NYTHouseOfRepresentatives.h"
 #import "NYTSenate.h"
-#import "SenatorCell.h"
-#import "RepCell.h"
+//#import "SenatorCell.h"
+//#import "RepCell.h"
 
 @interface DMCFirstViewController ()
 
@@ -21,8 +21,6 @@
 
 //@synthesize type;// = _type;
 @synthesize senateView, houseView, senateTableView, houseTableView;
-
-NSArray *houseMembers, *senators, *searchedHouseMembers, *searchedSenators;
 
 NYTHouseOfRepresentatives *house;
 NYTSenate *senate;
@@ -53,8 +51,10 @@ NYTSenate *senate;
     
     dispatch_semaphore_wait(holdOn, DISPATCH_TIME_FOREVER);
 
-    houseMembers = [house getMembers];
-    senators = [senate getMembers];
+    [houseTableView setMembers:[house getMembers]];
+    [senateTableView setMembers:[senate getMembers]];
+    //houseMembers = [house getMembers];
+    //senators = [senate getMembers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,39 +63,39 @@ NYTSenate *senate;
     // Dispose of any resources that can be recreated.
 }
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //UITableView *search = self.searchDisplayController;
-   // if (tableView == self.searchDisplayController) {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
         
-   // }
-    
-    if (tableView == self.senateTableView) {
-        static NSString *cellTableIdentifier = @"SenatorCell";
-        SenatorCell *cell = (SenatorCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
-        NYTSenator *senator = [senators objectAtIndex: indexPath.row];
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellTableIdentifier owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        cell.state.text = [senator state];
-        cell.name.text = [senator nameString];
-        cell.party.text = [senator party];
-        return cell;
-    } else if (tableView == self.houseTableView) {
-        static NSString *cellTableIdentifier = @"RepCell";
-        RepCell *cell = (RepCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
-        NYTHouseRepresentative *rep = [houseMembers objectAtIndex:indexPath.row];
-        cell = (RepCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellTableIdentifier owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        cell.state.text = [rep state];
-        cell.name.text = [rep nameString];
-        cell.district.text = [rep districtString];
-        return cell;
+    } else {
+        if (tableView == self.senateTableView) {
+            static NSString *cellTableIdentifier = @"SenatorCell";
+            SenatorCell *cell = (SenatorCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
+            NYTSenator *senator = [senators objectAtIndex: indexPath.row];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellTableIdentifier owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+            cell.state.text = [senator state];
+            cell.name.text = [senator nameString];
+            cell.party.text = [senator party];
+            return cell;
+        } else if (tableView == self.houseTableView) {
+            static NSString *cellTableIdentifier = @"RepCell";
+            RepCell *cell = (RepCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
+            NYTHouseRepresentative *rep = [houseMembers objectAtIndex:indexPath.row];
+            cell = (RepCell *)[tableView dequeueReusableCellWithIdentifier:cellTableIdentifier];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellTableIdentifier owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+            cell.state.text = [rep state];
+            cell.name.text = [rep nameString];
+            cell.district.text = [rep districtString];
+            return cell;
+        }
     }
-    
     // shouldn't happen
     return NULL;
 }
+ */
 /*
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     NSLog(@"HA! caught you trying to set undefined key %@ to %@",key,value);
@@ -104,7 +104,7 @@ NYTSenate *senate;
 - (id)valueForUndefinedKey:(NSString *)key {
     return NULL;
 }*/
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -115,7 +115,8 @@ NYTSenate *senate;
 {
     return [houseMembers count];
 }
-/*
+*/
+ /*
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     NSPredicate *resultPredicate = [NSPredicate
@@ -142,9 +143,5 @@ NYTSenate *senate;
             break;
     }
 }
-/*
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [indexPath row] * 20;
-}*/
+
 @end

@@ -8,20 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "NYTCongress.h"
+#import "MembersTableView.h"
 
-@interface DMCFirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DMCFirstViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *senateView;
 @property (weak, nonatomic) IBOutlet UIView *houseView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-@property (weak, nonatomic) IBOutlet UITableView *senateTableView;
-@property (weak, nonatomic) IBOutlet UITableView *houseTableView;
+@property (weak, nonatomic) IBOutlet MembersTableView *senateTableView;
+@property (weak, nonatomic) IBOutlet MembersTableView *houseTableView;
 
-//@property NSString* type;
-
-
-//- (void)setValue:(id)value forUndefinedKey:(NSString *)key;
-//- (id)valueForUndefinedKey:(NSString *)key;
 
 - (IBAction)segmentValueChanged:(id)sender;
 
